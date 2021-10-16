@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                echo '******* Code checkout in progress *******'
+                echo "******* Code checkout in progress *******"
                 git branch: 'main', url: 'https://github.com/send2durai/infra-setup-for-project.git'
             }
         }
@@ -24,7 +24,7 @@ pipeline {
     }
     post {
         always {
-            echo "Going to send out an Job Notifications"
+            echo "********** Sending Slack Notifications on Piepline Job Status"
         }
         failure {
             slackSend channel: 'devops', message: 'Hey DevOps Team  #########  Jenkins Pipeline Job is Failure  #########'
