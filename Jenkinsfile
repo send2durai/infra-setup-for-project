@@ -21,4 +21,15 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "Going to send out an Job Notifications"
+        }
+        failure {
+            slackSend channel: 'devops', message: 'Hey DevOps Team  #########  Jenkins Pipeline Job is Failure  #########'
+        }
+        success {
+            slackSend channel: 'devops', message: 'Hey DevOps Team  #########  Jenkins Pipeline Job is Succeed  #########'
+        }
+    }
 }
