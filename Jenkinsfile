@@ -17,13 +17,14 @@ pipeline {
         stage("Terraform Action"){
             steps{
                 echo "***** Terraform action from the parameter is --> ${action}"
+                echo "***** Terraform action from the parameter is --> ${environment}"
                 sh ("terraform ${action} --auto-approve");
             }
         }
     }
     post {
         always {
-            echo "******** Sending Slack Notification On Pipeline Job Status ********"
+            echo "Going to send out an Job Notifications"
         }
         failure {
             slackSend channel: 'devops', message: 'Hey DevOps Team  #########  Jenkins Pipeline Job is Failure  #########'
