@@ -1,6 +1,6 @@
 # infra-setup-for-project
 
-##################################################################################
+###########################################################################################
 This will be a new infra setup for a customer in AWS Cloud. Following services will be created using Jenkins CI/CD
 
 # Pre-requisities:
